@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inrhythm.domain.Product;
+import com.inrhythm.exception.IncorrectInputException;
 import com.inrhythm.repository.ProductRepository;
 
 @Service
@@ -21,27 +22,31 @@ public class ProductService {
 	
 	public Optional<Product> findById(String idString) {
 		Integer id = 0;
-		try {
-			id = Integer.parseInt(idString);
-		}catch(NumberFormatException e) {
-			
+		id = Integer.parseInt(idString);
+		Optional<Product> result = repo.findById(id);
+		
+		if(result.isPresent()) {
+			return result;
+		}else {
+			throw new IncorrectInputException("No PRODUCT in db found for id: " + idString);
 		}
-		return repo.findById(id);
 	}
 	
 	public Product findByName(String name) {
-		return repo.findByName(name);
+		Product result = repo.findByName(name);
+		if(result!=null && result.getName().equalsIgnoreCase(name)) {
+			return repo.findByName(name);
+		}else {
+			throw new IncorrectInputException("No PRODUCT in db found for name: " + name);
+		}
 	}
 	
 	public List<Product> findByIsElectronic(String isElectronic){
-		Boolean boo = false;
-		try {
-			boo = Boolean.valueOf(isElectronic);
-		}catch(Exception e) {
-			
+		if(isElectronic.equalsIgnoreCase("true") || isElectronic.equalsIgnoreCase("false")) {
+			return repo.findByIsElectronic(Boolean.valueOf(isElectronic));
+		}else {
+			throw new IncorrectInputException("Expecting in parameter \"true\" or \"false\" but got: " + isElectronic);
 		}
-		
-		return repo.findByIsElectronic(boo);
 	}
 	
 }

@@ -2,22 +2,25 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1"/>
-<title>InRhythm Product Page</title>
+<title>Cart</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 	table{
-		width: 75%;
-		position: relative;
-		margin: 20px auto;	
+		margin: 30px auto !important;
+		width:75% !important;	
 	}
 </style>
 </head>
 
 <body>
-
-	<h3>Cart Info</h3>
+	<div class="container">
+		<h3>Cart Info</h3>
+	</div>
 	
 	<form method="post" th:action="${'/cart/update'}">
-		<table border="1">
+		<table class="table table-hover">
 			<tr>
 				<th>Remove</th>
 				<th>Product ID</th>
@@ -50,8 +53,10 @@
 		</table>
 	</form>
 	<hr/>
-	<a th:href="${'/product/index'}">Continue Shopping</a>
-	<a th:href="${'/product/index'}">Check Out</a>
+	<div class="container">
+		<a th:href="${'/product/index'}">Continue Shopping</a> <br/>
+	</div>
 </body>
+
 
 </html>

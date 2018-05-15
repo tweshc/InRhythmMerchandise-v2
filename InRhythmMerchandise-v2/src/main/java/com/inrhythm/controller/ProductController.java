@@ -11,7 +11,7 @@ import com.inrhythm.service.ProductService;
 public class ProductController {
 	
 	@Autowired
-	ProductService service;
+	private ProductService service;
 
 	@RequestMapping(value = "/findAll", method = RequestMethod.GET, produces = "application/json")
 	public Iterable<Product> findAll(){

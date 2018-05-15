@@ -20,4 +20,17 @@ public class WebController {
 		return "product/index";
 	}
 	
+	@RequestMapping(value = "/product/index/electronics", method = RequestMethod.GET)
+	public String electronics(ModelMap modelMap) {
+		modelMap.put("products", service.findByIsElectronic("true"));
+		System.out.println(service.findByIsElectronic("true"));
+		return "product/index";
+	}
+	
+	@RequestMapping(value = "/product/index/household", method = RequestMethod.GET)
+	public String householdProducts(ModelMap modelMap) {
+		modelMap.put("products", service.findByIsElectronic("false"));
+		System.out.println(service.findByIsElectronic("false"));
+		return "product/index";
+	}
 }

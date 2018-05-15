@@ -3,26 +3,42 @@
 <head>
 <meta charset="ISO-8859-1"/>
 <title>InRhythm Product Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 	table{
-		width: 75%;
-		position: relative;
-		margin: 20px auto;	
+		margin: 30px auto !important;
+		width:75% !important;	
 	}
+	
+	.links > a {
+		font-size: 16px;
+	}
+	
+	.glyphicon{
+		margin-left: 20px;
+	]
 </style>
 </head>
 
 <body>
 
-	<h3>Product List</h3>
+	<div class="container links">
+		<h3>Product List</h3>
+				<h4>Search by type:</h4>
+		<a th:href="${'/product/index'}">All Products |</a>
+		<a th:href="${'/product/index/electronics'}">Electronic Products |</a>
+		<a th:href="${'/product/index/household'}">Household Products</a>
+	</div>
 	
-	<table border="1">
+	<table class="table table-hover">
 		<tr>
 			<th>Product ID</th>
 			<th>Product Name</th>
 			<th>Electronic Item</th>
 			<th>Price</th>
-			<th>Buy</th>
+			<th>Add to cart</th>
 		</tr>
 		<tr th:each="product : ${products}">
 			<td th:text="${product.id}"></td>
@@ -30,7 +46,9 @@
 			<td th:text="${product.isElectronic}"></td>
 			<td th:text="${product.price}"></td>
 			<td>
-				<a th:href="${'/cart/buy/' + product.id}">Buy Now</a>
+				<a th:href="${'/cart/buy/' + product.id}">
+				<span class="glyphicon glyphicon-shopping-cart"></span>
+				</a>
 			</td>
 		</tr>
 	</table>
