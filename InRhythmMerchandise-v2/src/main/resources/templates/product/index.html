@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>InRhythm Product Page</title>
+<style>
+	table{
+		width: 75%;
+		position: relative;
+		margin: 20px auto;	
+	}
+</style>
+</head>
+
+<body>
+
+	<h3>Product List</h3>
+	
+	<table border="1">
+		<tr>
+			<th>Product ID</th>
+			<th>Product Name</th>
+			<th>Electronic Item</th>
+			<th>Price</th>
+			<th>Buy</th>
+		</tr>
+		<tr th:each="product : ${products}">
+			<td th:text="${product.id}"></td>
+			<td th:text="${product.name}"></td>
+			<td th:text="${product.isElectronic}"></td>
+			<td th:text="${product.price}"></td>
+			<td>
+				<a th:href="${'/cart/buy/' + product.id}">Buy Now</a>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

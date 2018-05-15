@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1"/>
+<title>InRhythm Product Page</title>
+<style>
+	table{
+		width: 75%;
+		position: relative;
+		margin: 20px auto;	
+	}
+</style>
+</head>
+
+<body>
+
+	<h3>Cart Info</h3>
+	
+	<form method="post" th:action="${'/cart/update'}">
+		<table border="1">
+			<tr>
+				<th>Remove</th>
+				<th>Product ID</th>
+				<th>Product Name</th>
+				<th>Electronic Item</th>
+				<th>Price</th>
+				<th>
+					Quantity
+					<input type="submit" value="Update"/>
+				</th>
+				<th>Total</th>
+			</tr>
+			<tr th:each="checkoutItem : ${session.cart}">
+				<td align="center">
+					<a th:href="${'cart/remove/' + checkoutItem.product.id}">X</a>
+				</td>
+				<td th:text="${checkoutItem.product.id}"></td>
+				<td th:text="${checkoutItem.product.name}"></td>
+				<td th:text="${checkoutItem.product.isElectronic}"></td>
+				<td th:text="${checkoutItem.product.price}"></td>
+				<td>
+					<input style="width:50px" type="number" th:value="${checkoutItem.quantity}" name="quantity"/>
+				</td>
+				<td th:text="${checkoutItem.product.price * checkoutItem.quantity}"></td>
+			</tr>
+			<tr>
+				<td colspan="6">Total</td>
+				<td th:text="${total}"></td>
+			</tr>
+		</table>
+	</form>
+	<hr/>
+	<a th:href="${'/product/index'}">Continue Shopping</a>
+	<a th:href="${'/product/index'}">Check Out</a>
+</body>
+
+</html>
