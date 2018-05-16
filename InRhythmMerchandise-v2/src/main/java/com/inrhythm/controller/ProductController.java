@@ -1,5 +1,6 @@
 package com.inrhythm.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,6 @@ public class ProductController {
 	@Autowired
 	private ProductService service;
 
-	@RequestMapping(value = "/findAll", method = RequestMethod.GET, produces = "application/json")
-	public Iterable<Product> findAll(){
-		return service.findAll();
-	}
-	
 	@RequestMapping(value = "/findById/{idString}", method = RequestMethod.GET, produces = "application/json")
 	public Optional<Product> findById(@PathVariable String idString){
 		return service.findById(idString);
@@ -29,8 +25,13 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/findByIsElectronic/{isElectronic}", method = RequestMethod.GET, produces = "application/json")
-	public Iterable<Product> findByIsElectronic(@PathVariable String isElectronic){
+	public List<Product> findByIsElectronic(@PathVariable String isElectronic){
 		return service.findByIsElectronic(isElectronic);
+	}
+	
+	@RequestMapping(value = "/findAll", method = RequestMethod.GET, produces = "application/json")
+	public Iterable<Product> findAll(){
+		return service.findAll();
 	}
 	
 }

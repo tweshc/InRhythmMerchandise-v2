@@ -46,8 +46,6 @@ public class AppAspect {
 		logger.info("Exiting: " + jp.toShortString());
 	}
 	
-	
-	
 	@Before("com.inrhythm.aspect.CommonPointcuts.allMethodsArgs()")
 	public void beforeAllMethodsWithArgs(JoinPoint jp) {
 		logger.info("Entering: " + jp.toShortString());
@@ -61,84 +59,5 @@ public class AppAspect {
 	public void afterAllMethodsWithArgs(JoinPoint jp) {
 		logger.info("Exiting: " + jp.toShortString());
 	}
-	
-	
-	
-	/*
-	
-	
-	
-	
-	@Before("com.inrhythm.aspect.CommonPointcuts.controllerExecutionNoArgs()")
-	public void beforeControllerExecutionNoArgs(JoinPoint jp) {
-		logger.info("Entering: " + jp.toShortString());
-	}
-	
-	@After("com.inrhythm.aspect.CommonPointcuts.controllerExecutionNoArgs()")
-	public void afterControllerExecutionNoArgs(JoinPoint jp) {
-		logger.info("Exiting: " + jp.toShortString());
-	}
-	
-	@Before("com.inrhythm.aspect.CommonPointcuts.controllerExecutionArgs()")
-	public void beforeControllerExecutionArgs(JoinPoint jp) {
-		logger.info("Entering: " + jp.toShortString());
-		logger.info("Args passed: ");
-		for(Object o : jp.getArgs()) {
-			logger.info(o.toString());
-		}
-	}
-	
-	@After("com.inrhythm.aspect.CommonPointcuts.controllerExecutionArgs()")
-	public void afterControllerExecutionArgs(JoinPoint jp) {
-		logger.info("Exiting: " + jp.toShortString());
-	}
-	
-	@Before("com.inrhythm.aspect.CommonPointcuts.businessLayerExecutionNoArgs()")
-	public void beforeBusinessLayerExecutionNoArgs(JoinPoint jp) {
-		logger.info("Entering: " + jp.toShortString());
-	}
-	
-	@After("com.inrhythm.aspect.CommonPointcuts.businessLayerExecutionNoArgs()")
-	public void afterBusinessLayerExecutionNoArgs(JoinPoint jp) {
-		logger.info("Exiting: " + jp.toShortString());
-	}
-	
-	@Before("com.inrhythm.aspect.CommonPointcuts.businessLayerExecutionArgs()")
-	public void beforeBusinessLayerExecutionArgs(JoinPoint jp) {
-		logger.info("Entering: " + jp.toShortString());
-		logger.info("Args passed: ");
-		for(Object o : jp.getArgs()) {
-			logger.info(o.toString());
-		}
-	}
-	
-	@After("com.inrhythm.aspect.CommonPointcuts.businessLayerExecutionArgs()")
-	public void afterBusinessLayerExecutionArgs(JoinPoint jp) {
-		logger.info("Exiting: " + jp.toShortString());
-	}
-	
-	@Before("com.inrhythm.aspect.CommonPointcuts.dataLayerExecutionNoArgs()")
-	public void beforeDataLayerExecutionNoArgs(JoinPoint jp) {
-		logger.info("Entering: " + jp.toShortString());
-	}
-	
-	@After("com.inrhythm.aspect.CommonPointcuts.dataLayerExecutionNoArgs()")
-	public void afterDataLayerExecutionNoArgs(JoinPoint jp) {
-		logger.info("Exiting: " + jp.toShortString());
-	}
-	
-	@Before("com.inrhythm.aspect.CommonPointcuts.dataLayerExecutionArgs()")
-	public void beforeDataLayerExecutionArgs(JoinPoint jp) {
-		logger.info("Entering: " + jp.toShortString());
-		logger.info("Args passed: ");
-		for(Object o : jp.getArgs()) {
-			logger.info(o.toString());
-		}
-	}
-	
-	@After("com.inrhythm.aspect.CommonPointcuts.dataLayerExecutionArgs()")
-	public void afterDataLayerExecutionArgs(JoinPoint jp) {
-		logger.info("Exiting: " + jp.toShortString());
-	}*/
 	
 }
