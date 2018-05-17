@@ -7,7 +7,7 @@ As an extra functionality this application has a simple UI. This UI lets you add
 ### Endpoints
 
 To access the UI, go to: 
-http://inrhythmmerchandise-v2-balanced-dingo.local.pcfdev.io/product/index
+/product/index
 
 The rest endpoints allow you to find by name, id, by electronics or list all products, as well as delete by id.
 
