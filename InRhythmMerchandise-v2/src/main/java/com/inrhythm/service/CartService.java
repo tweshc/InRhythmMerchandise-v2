@@ -15,12 +15,23 @@ import com.inrhythm.domain.CheckoutItem;
 import com.inrhythm.domain.Product;
 import com.inrhythm.util.CartUtil;
 
+/**
+ * The Class CartService.
+ */
 @Service
 public class CartService {
 	
+	/** The product service. */
 	@Autowired
 	private ProductService productService;
 
+	/**
+	 * Cart index.
+	 *
+	 * @param idString the id string
+	 * @param modelMap the model map
+	 * @param session the session
+	 */
 	public void cartIndex(String idString, ModelMap modelMap, HttpSession session) {
 		if(session.getAttribute("cart") == null) {
 			List<CheckoutItem> cart = new ArrayList<CheckoutItem>();
@@ -50,6 +61,12 @@ public class CartService {
 		}		
 	}
 
+	/**
+	 * Removes the from cart.
+	 *
+	 * @param idString the id string
+	 * @param session the session
+	 */
 	public void removeFromCart(String idString, HttpSession session) {
 		List<CheckoutItem> cart = (List<CheckoutItem>) session.getAttribute("cart");
 		int index = CartUtil.isExists(idString, cart);
@@ -57,6 +74,12 @@ public class CartService {
 		session.setAttribute("Cart", cart);		
 	}
 
+	/**
+	 * Update cart.
+	 *
+	 * @param request the request
+	 * @param session the session
+	 */
 	public void updateCart(HttpServletRequest request, HttpSession session) {
 		String[] quantities = request.getParameterValues("quantity");
 		List<CheckoutItem> cart = (List<CheckoutItem>) session.getAttribute("cart");

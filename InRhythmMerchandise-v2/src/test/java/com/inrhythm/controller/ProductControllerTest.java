@@ -43,7 +43,7 @@ public class ProductControllerTest {
 	@Test
 	public void testFindById_shouldReturnProduct() throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
-		Optional product = Optional.of(new Product(123, "ABC", true, 1.99F));
+		Optional<Product> product = Optional.of(new Product(123, "ABC", true, 1.99F));
 		
 		String jsonInString = mapper.writeValueAsString(product.get());
 		
@@ -117,13 +117,13 @@ public class ProductControllerTest {
 		Product product = new Product(123, "ABC", true, 1.99F);
 		List<Product> resultList = new ArrayList<>();
 		resultList.add(product);
-		Iterable ite = resultList;
+		Iterable<Product> ite = resultList;
 		
 		String jsonInString = mapper.writeValueAsString(ite);
 		
 		when(service.findAll()).thenReturn(ite);
 		
-		mockMvc.perform(MockMvcRequestBuilders.get("/findByIsElectronic/true"))
+		mockMvc.perform(MockMvcRequestBuilders.get("/findAll"))
 			.andExpect(MockMvcResultMatchers.status().isOk())
 			.andExpect(MockMvcResultMatchers.content().string(jsonInString));
 	}

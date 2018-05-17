@@ -38,14 +38,13 @@ import com.inrhythm.util.CartUtil;
 public class CartControllerTest {
 
 	private MockMvc mockMvc;
+	private HttpSession mockHttpSession;
 
 	@InjectMocks
-	private CartController controller;
+	private ProductController controller;
 	
 	@Mock
-	private CartService service;
-	
-	private HttpSession mockHttpSession;
+	private ProductService service;
 	
 	@Before
 	public void setUp() throws Exception{

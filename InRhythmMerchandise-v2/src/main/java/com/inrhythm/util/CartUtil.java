@@ -6,8 +6,18 @@ import javax.servlet.http.HttpSession;
 
 import com.inrhythm.domain.CheckoutItem;
 
+/**
+ * The Class CartUtil.
+ */
 public class CartUtil {
 
+	/**
+	 * Checks if is exists.
+	 *
+	 * @param idString the id string
+	 * @param cart the cart
+	 * @return the int
+	 */
 	public static int isExists(String idString, List<CheckoutItem> cart) {
 		int id = Integer.parseInt(idString);
 		for(int i=0; i<cart.size(); i++) {
@@ -18,6 +28,12 @@ public class CartUtil {
 		return -1;
 	}
 	
+	/**
+	 * Total price.
+	 *
+	 * @param session the session
+	 * @return the double
+	 */
 	public static double totalPrice(HttpSession session) {
 		List<CheckoutItem> cart = (List<CheckoutItem>) session.getAttribute("cart");
 		double s = 0;

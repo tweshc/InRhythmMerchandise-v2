@@ -10,23 +10,17 @@ public class CommonPointcuts {
 	@Pointcut("execution(* com.inrhythm.*.*.*(..))")
 	public void allMethodsArgs(){}
 	
-	
-	
 	@Pointcut("execution(* com.inrhythm.controller.*.*())")
 	public void controllerExecutionNoArgs(){}
 	
 	@Pointcut("execution(* com.inrhythm.controller.*.*(..))")
 	public void controllerExecutionArgs(){}
 	
-	
-	
 	@Pointcut("execution(* com.inrhythm.service.*.*())")
 	public void businessLayerExecutionNoArgs(){}
 	
 	@Pointcut("execution(* com.inrhythm.service.*.*(..))")
 	public void businessLayerExecutionArgs(){}
-	
-	
 	
 	@Pointcut("execution(* com.inrhythm.repository.*.*())")
 	public void dataLayerExecutionNoArgs(){}
