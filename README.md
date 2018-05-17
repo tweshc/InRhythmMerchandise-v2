@@ -13,8 +13,8 @@ The rest endpoints allow you to find by name, id, by electronics or list all pro
 
 Rest Endpoints:
 
-http://inrhythmmerchandise-v2-balanced-dingo.local.pcfdev.io/findAll
-/findById/{id}                      - must be valid id num from list of products from /findAll
-/findByName/{name}                  - must be valid name from list of products from /findAll
-/findByIsElectronic/{isElectronic}  - must be boolean true or false
-/deleteById/{id}                    - must be valid id num from list of products from /findAll
+/findAll                            - get all products
+/findById/{id}                      - must be id from products from /findAll
+/findByName/{name}                  - must be name from products from /findAll
+/findByIsElectronic/{isElectronic}  - must be true/false
+/deleteById/{id}                    - must be id from products from /findAll
