@@ -13,8 +13,8 @@ The rest endpoints allow you to find by name, id, by electronics or list all pro
 
 Rest Endpoints:
 
-/findAll                            - get all products
-/findById/{id}                      - must be id from products from /findAll
-/findByName/{name}                  - must be name from products from /findAll
-/findByIsElectronic/{isElectronic}  - must be true/false
-/deleteById/{id}                    - must be id from products from /findAll
+/findAll                            - get all products <br />
+/findById/{id}                      - must be id from products from /findAll <br />
+/findByName/{name}                  - must be name from products from /findAll <br />
+/findByIsElectronic/{isElectronic}  - must be true/false <br />
+/deleteById/{id}                    - must be id from products from /findAll <br />
