@@ -1,5 +1,7 @@
 package com.inrhythm.util;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -40,7 +42,9 @@ public class CartUtil {
 		for(CheckoutItem item : cart) {
 			s += item.getQuantity() * item.getProduct().getPrice().doubleValue();
 		}
-		return s;
+		BigDecimal bd = new BigDecimal(s);
+		bd = bd.setScale(2, RoundingMode.HALF_UP);
+		return bd.doubleValue();
 	}
 	
 }

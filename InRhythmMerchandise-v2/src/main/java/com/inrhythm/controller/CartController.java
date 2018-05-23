@@ -51,9 +51,9 @@ public class CartController {
 	 * @return the string
 	 */
 	@RequestMapping(value = "buy/{id}", method = RequestMethod.GET)
-	public String cartIndex(@PathVariable("id") String idString, ModelMap modelMap, HttpSession session) {
+	public String cartIndex(@PathVariable("id") String idString, HttpSession session) {
 		
-		cartService.cartIndex(idString, modelMap, session);
+		cartService.cartIndex(idString, session);
 		
 		return "redirect:../../cart";
 	}

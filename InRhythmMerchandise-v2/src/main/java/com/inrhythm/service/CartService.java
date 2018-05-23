@@ -32,7 +32,7 @@ public class CartService {
 	 * @param modelMap the model map
 	 * @param session the session
 	 */
-	public void cartIndex(String idString, ModelMap modelMap, HttpSession session) {
+	public void cartIndex(String idString, HttpSession session) {
 		if(session.getAttribute("cart") == null) {
 			List<CheckoutItem> cart = new ArrayList<CheckoutItem>();
 			Optional<Product> opt = productService.findById(idString);

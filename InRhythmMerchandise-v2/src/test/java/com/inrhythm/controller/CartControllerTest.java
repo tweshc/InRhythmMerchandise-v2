@@ -36,6 +36,12 @@ import com.inrhythm.util.CartUtil;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 public class CartControllerTest {
+	
+	private static final Integer PRODUCT_ID = 123;
+    private static final String PRODUCT_NAME = "Foo";
+    private static final Boolean IS_ELECTRONIC = true;
+    private static final Float PRICE = 1.99F;
+    private static final String CART = "cart";
 
 	private MockMvc mockMvc;
 	private HttpSession mockHttpSession;
@@ -56,18 +62,18 @@ public class CartControllerTest {
 		
 		List<CheckoutItem> cart = new ArrayList<CheckoutItem>();
 
-		Product mockProduct = new Product(10010, "Pencil", false, 1.50F);
+		Product mockProduct = new Product(PRODUCT_ID, PRODUCT_NAME, IS_ELECTRONIC, PRICE);
 		CheckoutItem mockCheckOutItem = new CheckoutItem(mockProduct, 1);
 		cart.add(mockCheckOutItem);
 		
-		mockHttpSession.setAttribute("cart", cart);
+		mockHttpSession.setAttribute(CART, cart);
 		
 		when(CartUtil.totalPrice(mockHttpSession)).thenReturn(0.0);
 		
 		mockMvc
 		.perform(MockMvcRequestBuilders.get("/cart"))
 			.andExpect(status().isOk())
-			.andExpect(model().attribute("cart", hasSize(1)));
+			.andExpect(model().attribute(CART, hasSize(1)));
 			
 	}
 

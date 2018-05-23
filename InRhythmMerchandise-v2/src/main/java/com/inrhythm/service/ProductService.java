@@ -86,4 +86,8 @@ public class ProductService {
 		repo.deleteById(id);
 	}
 	
+	public void setRepo(ProductRepository repo) {
+		this.repo = repo;
+	}
+	
 }
