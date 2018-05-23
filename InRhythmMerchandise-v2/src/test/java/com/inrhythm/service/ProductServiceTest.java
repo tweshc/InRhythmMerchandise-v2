@@ -29,19 +29,19 @@ public class ProductServiceTest {
     @InjectMocks
 	private ProductService service;
 	
-//	@Test
-//	public void test_findAll() {
-//		//service = new ProductService();
-//		List<Product> list = new ArrayList<>();
-//		list.add(new Product(PRODUCT_ID, PRODUCT_NAME, IS_ELECTRONIC, PRICE));
-//		//Iterable<Product> ite = list;
-//		repository = mock(ProductRepository.class);
-//		service.setRepo(repository);
-//		
-//		when(repository.findAll()).thenReturn(list);
-//		
-//		assertNotNull(service.findAll());
-//	}
+	@Test
+	public void test_findAll() {
+		//service = new ProductService();
+		List<Product> list = new ArrayList<>();
+		list.add(new Product(PRODUCT_ID, PRODUCT_NAME, IS_ELECTRONIC, PRICE));
+		//Iterable<Product> ite = list;
+		repository = mock(ProductRepository.class);
+		service.setRepo(repository);
+		
+		when(repository.findAll()).thenReturn(list);
+		
+		assertNotNull(service.findAll());
+	}
     
     @Test
     public void test_findById() {
